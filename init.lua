@@ -1,4 +1,3 @@
-vim.cmd 'language en_US'
 --[[
 
 =====================================================================
@@ -248,7 +247,19 @@ rtp:prepend(lazypath)
 -- NOTE: Here is where you install your plugins.
 require('lazy').setup({
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
-  'NMAC427/guess-indent.nvim', -- Detect tabstop and shiftwidth automatically
+  {'nmac427/guess-indent.nvim', -- Detect tabstop and shiftwidth automatically
+    opts = {
+      auto_cmd = true, -- Set to false to disable automatic execution
+      override_editorconfig = false, -- Whether to override the settings in .editorconfig
+      filetype_exclude = { -- A list of filetypes for which the plugin will not be active
+        'netrw',
+        'tutor',
+        'help',
+        'lazy',
+        'mason',
+      },
+    },
+  },
 
   'nvim-tree/nvim-web-devicons',
 
@@ -675,7 +686,7 @@ require('lazy').setup({
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
-        -- clangd = {},
+        clangd = {},
         -- gopls = {},
         -- pyright = {},
         -- rust_analyzer = {},
@@ -839,7 +850,7 @@ require('lazy').setup({
         -- <c-k>: Toggle signature help
         --
         -- See :h blink-cmp-config-keymap for defining your own keymap
-        preset = 'default',
+        preset = 'super-tab',
 
         -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
         --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
