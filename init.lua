@@ -265,7 +265,6 @@ require('lazy').setup({
   'nvim-tree/nvim-web-devicons',
 
   { 'christoomey/vim-tmux-navigator' },
-
   { 'morhetz/gruvbox' },
   { 'catppuccin/nvim' },
   -- NOTE: Plugins can also be added by using a table,
